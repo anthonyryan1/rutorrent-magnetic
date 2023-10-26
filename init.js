@@ -7,27 +7,7 @@
 	var cookies = document.cookie.split(": "),
 		i;
 
-	// Lazy polyfill for browsers that don't yet support API change yet
-	if (typeof navigator.isProtocolHandlerRegistered === "undefined") {
-		navigator.isProtocolHandlerRegistered = function(){
-			return false;
-		};
-	}
-
-	// Mark this plugin as disabled if there's no browser support
-	// Purely cosmetic to help troubleshooting
-	if (typeof navigator.registerProtocolHandler === "undefined") {
-		plugin.disable();
-		return;
-	}
-
-	// If we're not the protcol handler, present the user with the choice
-	if (!navigator.isProtocolHandlerRegistered(
-			"magnet",
-			location.origin + location.pathname + "plugins/magnetic/adduri.php?uri=%s"
-	)) {
-		noty('The functionality provided by the magnetic plugin is now included in ruTorrent itself. Please open Settings and check "' + theUILang.registerMagnet + '" to enable the feature. Then register the new magnet handler.')
-	}
+	// noty('The functionality provided by the magnetic plugin is now included in ruTorrent itself. Please open Settings and check "' + theUILang.registerMagnet + '" to enable the feature. Then register the new magnet handler.')
 
 	// Show torrents added
 	for (i = 0; i < cookies.length; i++) {
