@@ -26,16 +26,7 @@
 			"magnet",
 			location.origin + location.pathname + "plugins/magnetic/adduri.php?uri=%s"
 	)) {
-		try {
-			navigator.registerProtocolHandler(
-				"magnet",
-				location.origin + location.pathname + "plugins/magnetic/adduri.php?uri=%s",
-				"ruTorrent (" + location.hostname + ")"
-			);
-		} catch (e) {
-			plugin.disable();
-			return;
-		}
+		noty('The functionality provided by the magnetic plugin is now included in ruTorrent itself. Please open Settings and check "' + theUILang.registerMagnet + '" to enable the feature. Then register the new magnet handler.')
 	}
 
 	// Show torrents added
